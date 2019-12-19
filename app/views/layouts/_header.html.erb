@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to I18n.t('movie.title.1'), root_path, class: "navbar-brand" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li><%= link_to I18n.t('movie.title.2'), new_movie_path, class: "active" %></li>
+          <li><%= link_to I18n.t('movie.title.3'), edit_user_registration_path %></li>
+          <li><%= link_to I18n.t('movie.title.4') , destroy_user_session_path, method: :get %></li>
+        <% else %>
+          <li><%= link_to I18n.t('movie.title.5'), new_user_registration_path, method: :get %></li>
+          <li><%= link_to I18n.t('movie.title.6'), new_user_session_path, class: "active" %></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="nav-item <%= "active" if I18n.locale == :ru %>">
+          <%= link_to "Рус", { locale: :ru}, class: "nav-link"%>
+        </li>
+        <li class="nav-item <%= "active" if I18n.locale == :en %>">
+          <%= link_to "En", { locale: :en}, class: "nav-link"%>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

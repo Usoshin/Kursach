@@ -1,0 +1,66 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <%=image_tag @movie.image.url(:medium) %>
+        <div class="star-rating" data-score=<%= @avg_review %>></div>
+        <em><%= "#{@reviews.length}"+I18n.t('show.movie.0')%></em>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+            <tr>
+              <td><strong><%= I18n.t('show.movie.1') %></strong></td>
+              <td><%= @movie.title %></td>
+            </tr>
+            <tr>
+              <td><strong><%= I18n.t('show.movie.2') %></strong></td>
+              <td><%= @movie.description %></td>
+            </tr>
+            <tr>
+              <td><strong><%= I18n.t('show.movie.3') %></strong></td>
+              <td><%= @movie.movie_length %></td>
+            </tr>
+            <tr>
+              <td><strong><%= I18n.t('show.movie.4') %></strong></td>
+              <td><%= @movie.director %></td>
+            </tr>
+            <tr>
+              <td><strong><%= I18n.t('show.movie.5') %></strong></td>
+              <td><%= @movie.rating %></td>
+            </tr>
+            </tbody>
+          </table>
+          <%=link_to I18n.t('show.movie.6'), new_movie_review_path(@movie) %>
+        </div>
+      </div>
+      <div class="col-md-7 col-md-offset-1">
+        <h1 class="review_title"><%= @movie.title %></h1>
+        <p><%= @movie.description %></p>
+
+        <% if @reviews.blank? %>
+          <h3><%= I18n.t('show.movie.7') %></h3>
+          <%=link_to I18n.t('show.movie.8'), new_movie_review_path(@movie), class: "btn btn-danger" %>
+        <%else %>
+          <% @reviews.each do |review| %>
+            <div class="reviews">
+              <div class="star-rating" data-score="<%= review.rating %> "></div>
+              <p><%= review.comment %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= link_to I18n.t('edits'), edit_movie_path(@movie) %> |
+<%= link_to I18n.t('back'), movies_path %>
+
+<script>
+    $('.star-rating').raty({
+        readOnly: true,
+        score: function() {
+            return $(this).attr('data-score');
+        },
+        path: '/assets/'
+    });
+</script>

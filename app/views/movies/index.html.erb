@@ -1,0 +1,17 @@
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1><%= I18n.t('movie.movie.3') %></h1>
+    <p><%= I18n.t('movie.movie.3') %></p>
+    <p><%= link_to I18n.t('movie.movie.3'), new_user_session_path , class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
+
+<div class="row">
+  <% @movies.each do|movie| %>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <%= link_to (image_tag movie.image.url(:medium), class: 'image'),movie,id: "btntext" %>
+    </div>
+  </div>
+  <% end %>
+</div>

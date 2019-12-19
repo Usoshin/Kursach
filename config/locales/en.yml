@@ -1,0 +1,72 @@
+en:
+  btn:
+    1: "Write review"
+    2: "Save film"
+    3: "Sign Up"
+    4: "Sign In"
+    5: "Forgot password?"
+    6: "Change password"
+    7: "Forgot password?"
+    8: "Send me Instruction"
+  new:
+    movie: "New Film"
+  back: "Back"
+  edits: "Edit"
+  password:
+    confirmation: "Send me instruction for recovery password"
+  update:
+    1: "Update"
+    2: "Delete my account"
+    3: "Are you sure"
+    4: "Delete my account"
+    7: "Edit review"
+    8: "New review"
+  show:
+    movie:
+      0: " reviews"
+      1: "Title"
+      2: "Description"
+      3: "Movie length"
+      4: "Director"
+      5: "Rating"
+      6: "Write review"
+      7: "No reviews yet, but you can be the first"
+      8: "Write review"
+  edit:
+    movie:
+      1: "Show"
+      2: "Edit"
+  movie:
+    movie:
+      1: "Your favourite movie review"
+      2: "Some text that spend 1 minute of your life"
+      3: "Sign In or Sign Up to make review"
+    title:
+      1: "Movie Reviews"
+      2: "New Movie"
+      3: "Account"
+      4: "Exit"
+      5: "Sign Up"
+      6: "Sign In"
+  activerecord:
+    models:
+      movie: "Movie"
+      user: "User"
+      review: "Review"
+    attributes:
+      movie:
+        title: "Title"
+        description: "Description"
+        movie_length: "Movie length"
+        director: "Director"
+        rating: "Rating"
+        image: "Image"
+      user:
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        remember_me: "Remember me"
+        current_password: "Write password twice "
+        confirm: "Are you sure?"
+      review:
+        comment: "Review"
